@@ -1,0 +1,65 @@
+#include <cstdlib> // For several general-purpose functions
+#include <iostream> // For cin, cout, and system
+#include <string>   // For string data type
+#include <stdio.h>
+using namespace std;
+
+class Sort {
+public:
+  // Generate random integers
+  void randomIntegers(int size);
+
+  // Function to swap two elements
+  void swap(int* p_1, int* p_2);
+
+  // Function for selection sort 
+  // input: arr = array of numbers, l = size of the array
+  // output: run time and sorted array
+  void selectionSort(int arr[], int l);
+
+  // Partition function 
+  // Takes the last element as pivot then moves all the 
+  // #'s > pivot to the right and #'s < pivot to the left
+  int partition(int arr[], int first, int last);
+
+  // Function for quick sort
+  // input: arr = array of numbers to be sorted, first = starting index
+  //        last = ending index 
+  // output: run time and sorted array
+  void quickSort(int arr[], int first, int last);
+
+  // Function for merging two arrays
+  // input: arr[] = array of numbers, int l = left index
+  //        int m = middle index, int r = right index
+  // output: None
+  void merge(int arr[], int l, int m, int r);
+
+  // Function for merge sort
+  // input: arr[] = array of numbers, int l = left index, 
+  //        int r = right index
+  // output: None
+  void mergeSort(int arr[], int l, int r);
+};
+
+void Sort::randomIntegers(int size) {
+  int arr[size];
+  int j = 0;
+  int k = 1;
+  for (int i = 0; i < size; i++) {
+    j = pow(10, k);
+    arr[i] = rand() % j + 1;
+    k++;
+  }
+  for (int k = 0; k < size; k++) {
+    cout << arr[k] << " ";
+  }
+  cout << endl;
+}
+
+void Sort::swap(int* a, int* b) {
+  int save = *a;
+  *a = *b;
+  *b = save;
+}
+
+void Sort::selectionSort(int arr[], int l) {
